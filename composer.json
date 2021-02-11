@@ -1,0 +1,43 @@
+{
+    "name": "brace/uikit-coreui",
+    "type": "library",
+    "description": "CoreUI UiKit",
+    "keywords": ["Router", "Dependency Injection", "Di"],
+    "homepage": "https://infracamp.org",
+    "license": "MIT",
+    "authors": [
+        {
+            "name": "Matthias Leuffen",
+            "email": "matthes@leuffen.de"
+        }
+    ],
+    "require": {
+        "brace/core": "*",
+        "brace/mod-router": "*",
+        "brace/mod-request-zend": "*",
+        "brace/mod-assets": "*",
+        "phore/html": "*"
+    },
+
+    "require-dev": {
+        "phore/tester": "*",
+        "phore/http-client": "*"
+    },
+    "autoload": {
+        "psr-4": {
+            "Brace\\UiKit\\CoreUi\\": "src"
+        },
+        "files": [
+            "src/functions.inc.php"
+        ]
+    },
+    "autoload-dev": {
+        "psr-4": {
+        }
+    },
+    "minimum-stability": "dev",
+    "extra": {
+        "branch-alias": {
+        }
+    }
+}
