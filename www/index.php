@@ -12,6 +12,7 @@ use Brace\Router\RouterDispatchMiddleware;
 use Brace\Router\RouterEvalMiddleware;
 use Brace\Router\RouterModule;
 use Brace\Router\Type\Route;
+use Brace\UiKit\CoreUi\Button;
 use Brace\UiKit\CoreUi\CoreUiConfig;
 use Brace\UiKit\CoreUi\CoreUiModule;
 use Brace\UiKit\CoreUi\CoreUiRenderer;
@@ -35,6 +36,13 @@ $app->setPipe([
 
 
 $app->router->onGet("/", function (Route $route, CoreUiRenderer $coreUiRenderer, CoreUiConfig $coreUiConfig) {
+    $coreUiConfig->sideNav
+        ->addElement(new Button("ClickMe", "cil-speedometer", "#test"))
+        ->addElement(new Button("Button", "cil-puzzle", "", [
+            new Button("Subnavi"),
+            (new Button("Subnavi2"))->setBadge("hello")
+        ]));
+
     return $coreUiRenderer->renderPage($coreUiConfig);
 });
 

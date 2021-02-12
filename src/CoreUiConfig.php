@@ -33,25 +33,29 @@ class CoreUiConfig
 
 
     /**
-     * @var Button[]
+     * @var NavBar
      */
     public $topNav = [];
 
     /**
-     * @var Button[]
+     * @var NavBar
      */
-    public $leftNav = [];
+    public $sideNav;
 
     /**
-     * @var Button[]
+     * @var NavBar
      */
     public $accountPopup = [];
 
     public function __construct (string $assetRoot = "/assets/")
     {
+        $this->sideNav = new NavBar();
+        $this->topNav = new NavBar();
+        $this->accountPopup = new NavBar();
+
         $this->brandLogoUrl = $assetRoot . "brand-logo.png";
-        $this->jsLinkFooter[] = $assetRoot . "ui-bundle.js";
-        $this->cssLinkHead[] = $assetRoot . "ui-bundle.css";
+        $this->jsLinkFooter[] = $assetRoot . "js/ui-bundle.js";
+        $this->cssLinkHead[] = $assetRoot . "css/ui-bundle.css";
     }
 
 

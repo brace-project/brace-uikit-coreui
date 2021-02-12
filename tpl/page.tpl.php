@@ -37,11 +37,60 @@ namespace Brace\UiKit\CoreUi;
             <img src="<?php txt($config->brandLogoUrl) ?>" height="46">
         </a>
     </div>
-    <ul class="c-sidebar-nav">
+    <?php
+
+    $nav = $config->sideNav;
+
+    $nav->setRenderer(function (Button $b) {
+        $childList = null;
+        if (count($b->childreen) > 0) {
+            $childList = fhtml("ul @class=c-sidebar-nav-dropdown-items");
+            foreach ($b->childreen as $child) {
+                $childList[] = fhtml([
+                        "li @class=c-sidebar-nav-item" => [
+                                "a @class=c-sidebar-nav-link @href=:href" => [
+                                    "span @class=c-sidebar-nav-icon @class=:icon" => "",
+                                    "{$child->name}",
+                                    $child->badge
+                                ]
+                        ]
+                ], (array)$child);
+            }
+
+            return fhtml(
+                ["li @class=c-sidebar-nav-dropdown" => [
+                    "a @class=c-sidebar-nav-dropdown-toggle @href=:href" => [
+                        ["i @class=c-sidebar-nav-icon @class=:icon" => ""],
+                        "$b->name",
+                        $b->badge
+                    ],
+                    $childList
+                ]
+                ], (array)$b);
+        }
+
+        return fhtml(
+            ["li @class=c-sidebar-nav-item" => [
+                "a @class=c-sidebar-nav-link @href=:href" => [
+                    ["i @class=c-sidebar-nav-icon @class=:icon" => ""],
+                    "$b->name",
+                    $b->badge
+                ],
+                $childList
+            ]
+            ], (array)$b);
+    });
+
+    $nav->out("ul @class=c-sidebar-nav");
+
+    ?>
+    <!--ul class="c-sidebar-nav">
+
+
+
         <li class="c-sidebar-nav-item"><a class="c-sidebar-nav-link" href="index.html">
-                <svg class="c-sidebar-nav-icon">
-                    <use xlink:href="vendors/@coreui/icons/svg/free.svg#cil-speedometer"></use>
-                </svg> Dashboard<span class="badge badge-info">NEW</span></a></li>
+                <i class="c-sidebar-nav-icon cil-speedometer"></i>
+                 Dashboard<span class="badge badge-info">NEW</span></a></li>
         <li class="c-sidebar-nav-title">Theme</li>
         <li class="c-sidebar-nav-item"><a class="c-sidebar-nav-link" href="colors.html">
                 <svg class="c-sidebar-nav-icon">
@@ -147,23 +196,20 @@ namespace Brace\UiKit\CoreUi;
                 <svg class="c-sidebar-nav-icon">
                     <use xlink:href="vendors/@coreui/icons/svg/free.svg#cil-layers"></use>
                 </svg> Try CoreUI<strong>PRO</strong></a></li>
-    </ul>
+    </ul-->
+
     <button class="c-sidebar-minimizer c-class-toggler" type="button" data-target="_parent" data-class="c-sidebar-minimized"></button>
 </div>
 <div class="c-wrapper c-fixed-components">
     <header class="c-header c-header-light c-header-fixed c-header-with-subheader">
         <button class="c-header-toggler c-class-toggler d-lg-none mfe-auto" type="button" data-target="#sidebar" data-class="c-sidebar-show">
-            <svg class="c-icon c-icon-lg">
-                <use xlink:href="vendors/@coreui/icons/svg/free.svg#cil-menu"></use>
-            </svg>
+            <i class="c-icon c-icon-lg cil-menu"></i>
         </button><a class="c-header-brand d-lg-none" href="#">
             <svg width="118" height="46" alt="CoreUI Logo">
                 <use xlink:href="assets/brand/coreui.svg#full"></use>
             </svg></a>
         <button class="c-header-toggler c-class-toggler mfs-3 d-md-down-none" type="button" data-target="#sidebar" data-class="c-sidebar-lg-show" responsive="true">
-            <svg class="c-icon c-icon-lg">
-                <use xlink:href="vendors/@coreui/icons/svg/free.svg#cil-menu"></use>
-            </svg>
+            <i class="c-icon c-icon-lg cil-menu"></i>
         </button>
         <ul class="c-header-nav d-md-down-none">
             <li class="c-header-nav-item px-3"><a class="c-header-nav-link" href="#">Dashboard</a></li>
