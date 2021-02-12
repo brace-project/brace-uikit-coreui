@@ -2,6 +2,9 @@
 # Run ./kickstart.sh to start a development-container for this project
 version: 1
 from: "nfra/kickstart-flavor-php:7.4"
+
+packages: wget
+
 command:
   build:
     - "composer update"
@@ -9,5 +12,8 @@ command:
   test:
     - "vendor/bin/phpunit --bootstrap vendor/autoload.php --testdox test"
   run:
+
+  mkdoc:
+    - wget --mirror --convert-links --html-extension --directory-prefix=/opt/docs http://localhost
   dev:
     - "echo 'I am executed in dev mode'"

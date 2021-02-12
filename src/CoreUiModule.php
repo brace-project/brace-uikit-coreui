@@ -6,6 +6,7 @@ namespace Brace\UiKit\CoreUi;
 
 use Brace\Core\BraceApp;
 use Brace\Core\BraceModule;
+use Phore\Di\Container\Producer\DiService;
 use Phore\Di\Container\Producer\DiValue;
 
 class CoreUiModule implements BraceModule
@@ -13,8 +14,12 @@ class CoreUiModule implements BraceModule
 
     private $assetRoot;
 
-    public function __construct (string $assetRoot = "/assets/")
+    private $factory;
+
+
+    public function __construct (callable $factory, string $assetRoot = "/assets/")
     {
+        $this->factory = $factory;
         $this->assetRoot = $assetRoot;
     }
 
@@ -43,7 +48,9 @@ class CoreUiModule implements BraceModule
         $app->assets->virtual($this->assetRoot . "css/fonts/bootstrap-icons.woff2")
 
             ->addFile(__DIR__ . "/../lib-dist/bootstrap-icons-1.3.0/fonts/bootstrap-icons.woff2");
+
         $app->define("coreUiRenderer", new DiValue(new CoreUiRenderer($app)));
-        $app->define("coreUiConfig", new DiValue(new CoreUiConfig()));
+        $app->define("coreUiConfig", new DiService($this->factory));
+
     }
 }

@@ -15,7 +15,9 @@ use Brace\Router\Type\Route;
 use Brace\UiKit\CoreUi\Button;
 use Brace\UiKit\CoreUi\CoreUiConfig;
 use Brace\UiKit\CoreUi\CoreUiModule;
+use Brace\UiKit\CoreUi\CoreUiPageReturnFormatter;
 use Brace\UiKit\CoreUi\CoreUiRenderer;
+use Brace\UiKit\CoreUi\Page;
 use Brace\UiKit\CoreUi\Spacer;
 use Brace\UiKit\CoreUi\Title;
 use Laminas\Diactoros\Response\JsonResponse;
@@ -27,17 +29,8 @@ $app = new BraceApp();
 $app->addModule(new BraceRequestZendModule());
 $app->addModule(new RouterModule());
 $app->addModule(new AssetsModule());
-$app->addModule(new CoreUiModule());
-
-$app->setPipe([
-    new AssetsMiddleware(["/assets/"]),
-    new RouterEvalMiddleware(),
-    new RouterDispatchMiddleware(new JsonReturnFormatter($app)),
-    new NotFoundMiddleware()
-]);
-
-
-$app->router->onGet("/", function (Route $route, CoreUiRenderer $coreUiRenderer, CoreUiConfig $coreUiConfig) {
+$app->addModule(new CoreUiModule(function() {
+    $coreUiConfig = new CoreUiConfig();
     $coreUiConfig->sideNav
         ->addElement(new Button("ClickMe", "cil-speedometer", "#test"))
         ->addElement(new Button("Button", "cil-puzzle", "", [
@@ -57,8 +50,24 @@ $app->router->onGet("/", function (Route $route, CoreUiRenderer $coreUiRenderer,
         ->addElement(new Button("Messages"))
         ->addElement(new Spacer())
         ->addElement(new Button("Logout", "cil-account-logout"));
+    return $coreUiConfig;
+}));
 
-    return $coreUiRenderer->renderPage($coreUiConfig);
+$app->setPipe([
+    new AssetsMiddleware(["/assets/"]),
+    new RouterEvalMiddleware(),
+    new RouterDispatchMiddleware([
+        new CoreUiPageReturnFormatter($app),
+        new JsonReturnFormatter($app)
+    ]),
+    new NotFoundMiddleware()
+]);
+
+
+$app->router->onGet("/", function (Route $route, CoreUiRenderer $coreUiRenderer, CoreUiConfig $coreUiConfig) {
+
+
+    return new Page("wurst");
 });
 
 $app->run();
