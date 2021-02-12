@@ -35,22 +35,32 @@ class CoreUiConfig
     /**
      * @var NavBar
      */
-    public $topNav = [];
+    public $topNav;
+
+    /**
+     * @var NavBar
+     */
+    public $topRightNav;
 
     /**
      * @var NavBar
      */
     public $sideNav;
 
+    public $avatarName = "";
+    public $avatarSrc = null;
+
     /**
      * @var NavBar
      */
-    public $accountPopup = [];
+    public $accountPopup;
 
     public function __construct (string $assetRoot = "/assets/")
     {
         $this->sideNav = new NavBar();
         $this->topNav = new NavBar();
+        $this->topRightNav = new NavBar();
+
         $this->accountPopup = new NavBar();
 
         $this->brandLogoUrl = $assetRoot . "brand-logo.png";

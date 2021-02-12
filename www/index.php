@@ -16,6 +16,8 @@ use Brace\UiKit\CoreUi\Button;
 use Brace\UiKit\CoreUi\CoreUiConfig;
 use Brace\UiKit\CoreUi\CoreUiModule;
 use Brace\UiKit\CoreUi\CoreUiRenderer;
+use Brace\UiKit\CoreUi\Spacer;
+use Brace\UiKit\CoreUi\Title;
 use Laminas\Diactoros\Response\JsonResponse;
 
 require __DIR__ . "/../vendor/autoload.php";
@@ -42,6 +44,19 @@ $app->router->onGet("/", function (Route $route, CoreUiRenderer $coreUiRenderer,
             new Button("Subnavi"),
             (new Button("Subnavi2"))->setBadge("hello")
         ]));
+
+    $coreUiConfig->topNav
+        ->addElement(new Button("Dashboard", "", "/"));
+
+
+    $coreUiConfig->topRightNav
+        ->addElement(new Button("", "cil-fingerprint", "/"));
+
+    $coreUiConfig->accountPopup
+        ->addElement(new Title("Account"))
+        ->addElement(new Button("Messages"))
+        ->addElement(new Spacer())
+        ->addElement(new Button("Logout", "cil-account-logout"));
 
     return $coreUiRenderer->renderPage($coreUiConfig);
 });
