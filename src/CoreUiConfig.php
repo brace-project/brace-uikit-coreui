@@ -55,11 +55,22 @@ class CoreUiConfig
      */
     public $accountPopup;
 
+    /**
+     * @var NavBar
+     */
+    public $breadcrumb;
+
+    public $footer = [
+        "div" => ["a @href=https://coreui.io" => "CoreUI Theme"],
+        "div @ml-auto" => ["a @href=https://infracamp.org" => "brace/uikit-coreui"]
+    ];
+
     public function __construct (string $assetRoot = "/assets/")
     {
         $this->sideNav = new NavBar();
         $this->topNav = new NavBar();
         $this->topRightNav = new NavBar();
+        $this->breadcrumb = new NavBar();
 
         $this->accountPopup = new NavBar();
 

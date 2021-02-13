@@ -32,6 +32,10 @@ class CoreUiPageReturnFormatter implements ReturnFormatterInterface
     {
         if ( ! $input instanceof Page)
             throw new \InvalidArgumentException("Input must be instance of Page");
-        return $this->app->coreUiRenderer->renderPage($this->app->coreUiConfig);
+
+        $renderer = new Renderer($input->tpl);
+        $html = $renderer->render($this->app->resolve("coreUiConfig"), $input->content);
+
+        return $this->app->responseFactory->createResponseWithBody($html)->withHeader("Content-Type", "text/html");
     }
 }

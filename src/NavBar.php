@@ -24,6 +24,10 @@ class NavBar
         $this->renderers[$class] = $fn;
     }
 
+    public function count() : int
+    {
+        return count ($this->elements);
+    }
 
     public function render($e)
     {

@@ -49,7 +49,6 @@ class CoreUiModule implements BraceModule
 
             ->addFile(__DIR__ . "/../lib-dist/bootstrap-icons-1.3.0/fonts/bootstrap-icons.woff2");
 
-        $app->define("coreUiRenderer", new DiValue(new CoreUiRenderer($app)));
         $app->define("coreUiConfig", new DiService($this->factory));
 
     }

@@ -45,6 +45,10 @@ $app->addModule(new CoreUiModule(function() {
     $coreUiConfig->topRightNav
         ->addElement(new Button("", "cil-fingerprint", "/"));
 
+    $coreUiConfig->breadcrumb
+        ->addElement(new Button("Home"))
+        ->addElement(new Button("Dash", "", "/"));
+
     $coreUiConfig->accountPopup
         ->addElement(new Title("Account"))
         ->addElement(new Button("Messages"))
@@ -64,10 +68,8 @@ $app->setPipe([
 ]);
 
 
-$app->router->onGet("/", function (Route $route, CoreUiRenderer $coreUiRenderer, CoreUiConfig $coreUiConfig) {
-
-
-    return new Page("wurst");
+$app->router->onGet("/", function (Route $route, CoreUiConfig $coreUiConfig) {
+    return Page::createCoreUiPage("hello world");
 });
 
 $app->run();
