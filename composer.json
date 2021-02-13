@@ -21,7 +21,8 @@
 
     "require-dev": {
         "phore/tester": "*",
-        "phore/http-client": "*"
+        "phore/http-client": "*",
+        "erusev/parsedown-extra": "*"
     },
     "autoload": {
         "psr-4": {

@@ -1,7 +1,7 @@
 <?php
 
 
-namespace Brace\UiKit\CoreUi;
+namespace Brace\UiKit\CoreUi\Template;
 
 
 use Brace\Core\BraceApp;
@@ -33,8 +33,9 @@ class CoreUiPageReturnFormatter implements ReturnFormatterInterface
         if ( ! $input instanceof Page)
             throw new \InvalidArgumentException("Input must be instance of Page");
 
-        $renderer = new Renderer($input->tpl);
-        $html = $renderer->render($this->app->resolve("coreUiConfig"), $input->content);
+        $tplData = $input->_getData();
+        $renderer = new Renderer($tplData["tpl"]);
+        $html = $renderer->render($this->app->resolve("coreUiConfig"), $tplData["content"]);
 
         return $this->app->responseFactory->createResponseWithBody($html)->withHeader("Content-Type", "text/html");
     }

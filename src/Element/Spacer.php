@@ -1,7 +1,7 @@
 <?php
 
 
-namespace Brace\UiKit\CoreUi;
+namespace Brace\UiKit\CoreUi\Element;
 
 
 class Spacer extends Button

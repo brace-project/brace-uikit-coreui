@@ -1,5 +1,6 @@
 <?php
 namespace Brace\UiKit\CoreUi;
+use Brace\UiKit\CoreUi\Template\Renderer;
 use function Brace\UiKit\CoreUi\el;
 use function Brace\UiKit\CoreUi\txt;
 

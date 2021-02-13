@@ -1,6 +1,11 @@
 <?php
 
 namespace Brace\UiKit\CoreUi;
+use Brace\UiKit\CoreUi\Element\Button;
+use Brace\UiKit\CoreUi\Element\Spacer;
+use Brace\UiKit\CoreUi\Element\Title;
+use Brace\UiKit\CoreUi\Template\Renderer;
+
 /**
  * @var \Brace\UiKit\CoreUi\CoreUiConfig $__CONFIG
  * @var Renderer $this

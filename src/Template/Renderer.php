@@ -1,8 +1,10 @@
 <?php
 
 
-namespace Brace\UiKit\CoreUi;
+namespace Brace\UiKit\CoreUi\Template;
 
+
+use Brace\UiKit\CoreUi\CoreUiConfig;
 
 class Renderer
 {

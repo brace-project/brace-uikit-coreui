@@ -12,15 +12,14 @@ use Brace\Router\RouterDispatchMiddleware;
 use Brace\Router\RouterEvalMiddleware;
 use Brace\Router\RouterModule;
 use Brace\Router\Type\Route;
-use Brace\UiKit\CoreUi\Button;
 use Brace\UiKit\CoreUi\CoreUiConfig;
 use Brace\UiKit\CoreUi\CoreUiModule;
-use Brace\UiKit\CoreUi\CoreUiPageReturnFormatter;
-use Brace\UiKit\CoreUi\CoreUiRenderer;
-use Brace\UiKit\CoreUi\Page;
-use Brace\UiKit\CoreUi\Spacer;
-use Brace\UiKit\CoreUi\Title;
-use Laminas\Diactoros\Response\JsonResponse;
+use Brace\UiKit\CoreUi\Element\Button;
+use Brace\UiKit\CoreUi\Element\Spacer;
+use Brace\UiKit\CoreUi\Element\Title;
+use Brace\UiKit\CoreUi\Template\CoreUiPageReturnFormatter;
+use Brace\UiKit\CoreUi\Template\Page;
+
 
 require __DIR__ . "/../vendor/autoload.php";
 
@@ -68,8 +67,14 @@ $app->setPipe([
 ]);
 
 
-$app->router->onGet("/", function (Route $route, CoreUiConfig $coreUiConfig) {
-    return Page::createCoreUiPage("hello world");
+$app->router->onGet("/", function (Route $route) {
+    return Page::createCoreUiPage()
+        ->loadMarkdown("tpl/welcome.md");
+});
+
+$app->router->onGet("/elements", function () {
+    return Page::createCoreUiPage()
+        ->loadMarkdown("tpl/welcome.md");
 });
 
 $app->run();

@@ -4,6 +4,8 @@
 namespace Brace\UiKit\CoreUi;
 
 
+use Brace\UiKit\CoreUi\Element\NavBar;
+
 class CoreUiConfig
 {
 

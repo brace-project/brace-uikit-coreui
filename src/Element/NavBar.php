@@ -1,7 +1,7 @@
 <?php
 
 
-namespace Brace\UiKit\CoreUi;
+namespace Brace\UiKit\CoreUi\Element;
 
 
 use Phore\Html\Elements\HtmlElement;
