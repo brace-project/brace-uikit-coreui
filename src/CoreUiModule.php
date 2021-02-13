@@ -17,9 +17,8 @@ class CoreUiModule implements BraceModule
     private $factory;
 
 
-    public function __construct (callable $factory, string $assetRoot = "/assets/")
+    public function __construct (string $assetRoot = "/assets/")
     {
-        $this->factory = $factory;
         $this->assetRoot = $assetRoot;
     }
 
@@ -49,7 +48,8 @@ class CoreUiModule implements BraceModule
 
             ->addFile(__DIR__ . "/../lib-dist/bootstrap-icons-1.3.0/fonts/bootstrap-icons.woff2");
 
-        $app->define("coreUiConfig", new DiService($this->factory));
+        $app->define("coreUiConfig", new DiValue(new CoreUiConfig($this->assetRoot)));
+        $app->define("coreUiConfigPreset", new DiValue(new CoreUiConfig($this->assetRoot)));
 
     }
 }
