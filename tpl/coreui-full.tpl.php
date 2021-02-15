@@ -111,7 +111,7 @@ $this->renderIn(__DIR__ . "/base.tpl.php");
                 $e = fhtml(
                         ["li @c-header-nav-item @d-md-down-none mx-2" => [
                                 "a @c-header-nav-link @href=:href" => [
-                                        "i @c-icon @font-2xl @class=:icon" => ""
+                                        "i @font-2xl @class=:icon" => ""
                                 ]
                             ]
                         ], (array)$button);

@@ -28,7 +28,7 @@ AppLoader::extend(function (BraceApp $app) {
 
 
         $coreUiConfig->topRightNav
-            ->addElement(new Button("", "cil-fingerprint", "/"));
+            ->addElement(new Button("", "bi-github", "https://github.com/brace-project/brace-uikit-coreui"));
 
         $coreUiConfig->breadcrumb
             ->addElement(new Button("Home"))

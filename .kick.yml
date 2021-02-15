@@ -14,7 +14,8 @@ command:
   run:
 
   mkdoc:
+    - rm -Rf /opt/docs/*
     - wget --mirror --convert-links --html-extension --directory-prefix=/opt/docs http://localhost || echo "hm"
-    - mv /opt/docs/localhost/* /opt/docs/
+    - mv -f /opt/docs/localhost/* /opt/docs/
   dev:
     - "echo 'I am executed in dev mode'"
