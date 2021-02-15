@@ -10,4 +10,28 @@ AppLoader::extend(function (BraceApp $app) {
         return Page::createCoreUiPage()
             ->loadMarkdown(__DIR__ . "/tpl/welcome.md");
     });
+
+    $app->router->onGet("/charts", function() {
+        return Page::createCoreUiPage()
+            ->loadPHP(__DIR__ . "/tpl/charts.php");
+    });
+
+    $app->router->onGet("/editor", function() {
+        return Page::createCoreUiPage()
+            ->loadPHP(__DIR__ . "/tpl/editor.php");
+    });
+
+    $app->router->onGet("/table", function() {
+        return Page::createCoreUiPage()
+            ->loadPHP(__DIR__ . "/tpl/table.php");
+    });
+    $app->router->onGet("/elements", function() {
+        return Page::createCoreUiPage()
+            ->loadPHP(__DIR__ . "/tpl/elements.php");
+    });
+
+    $app->router->onGet("/icons", function() {
+        return Page::createCoreUiPage()
+            ->loadHtml(__DIR__ . "/tpl/icons.html");
+    });
 });

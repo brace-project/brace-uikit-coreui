@@ -5,6 +5,7 @@ namespace Brace\UiKit\CoreUi\Template;
 
 
 use Phore\Html\Elements\HtmlElement;
+use Phore\Html\Elements\RawHtmlNode;
 
 class Page
 {
@@ -36,6 +37,15 @@ class Page
     public function loadMarkdown(string $filename) : self
     {
         $this->content[] = fhtml()::MarkdownFile($filename);
+        return $this;
+    }
+
+    public function loadPHP (string $filename, mixed $__DATA = []) : self
+    {
+        ob_start();
+        require $filename;
+        $content = ob_get_clean();
+        $this->content[] = new RawHtmlNode($content);
         return $this;
     }
 

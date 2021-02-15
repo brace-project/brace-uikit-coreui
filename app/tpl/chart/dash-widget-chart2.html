@@ -1,0 +1,64 @@
+
+<div class="card text-white bg-warning">
+    <div class="card-body card-body pb-0 d-flex justify-content-between align-items-start">
+        <div>
+            <div class="text-value-lg">9.823</div>
+            <div>Members online</div>
+        </div>
+        <div class="btn-group">
+            <button class="btn btn-transparent dropdown-toggle p-0" type="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                <i class="c-icon cil-settings"></i>
+            </button>
+            <div class="dropdown-menu dropdown-menu-right"><a class="dropdown-item" href="#">Action</a><a class="dropdown-item" href="#">Another action</a><a class="dropdown-item" href="#">Something else here</a></div>
+        </div>
+    </div>
+    <div class="c-chart-wrapper mt-3 mx-3" style="height:70px;">
+        <div class="chartjs-size-monitor">
+            <div class="chartjs-size-monitor-expand">
+                <div class=""></div>
+            </div>
+            <div class="chartjs-size-monitor-shrink">
+                <div class=""></div>
+            </div>
+        </div>
+        <canvas class="chart chartjs-render-monitor" id="card-chart2" height="70" style="display: block; width: 343px; height: 70px;" width="343"></canvas>
+
+        <div id="card-chart1-tooltip" class="c-chartjs-tooltip top" style="opacity: 0; left: 77.8417px; top: 120.467px;">
+            <div class="c-tooltip-header">
+                <div class="c-tooltip-header-item">February</div>
+            </div><div class="c-tooltip-body">
+                <div class="c-tooltip-body-item">
+                    <span class="c-tooltip-body-item-color" style="background-color: rgb(50, 31, 219);"></span>
+                    <span class="c-tooltip-body-item-label">My First dataset</span>
+                    <span class="c-tooltip-body-item-value">59</span>
+                </div>
+            </div>
+        </div>
+    </div>
+    <script>
+
+        window.addEventListener("load", () => {
+            var cardChart3 = new Chart(document.getElementById('card-chart2'), {
+                type: 'line',
+                data: {
+                    labels: ['January', 'February', 'March', 'April', 'May', 'June', 'July'],
+                    datasets: [{
+                        label: 'My First dataset',
+                        backgroundColor: 'rgba(255,255,255,.2)',
+                        borderColor: 'rgba(255,255,255,.55)',
+                        data: [78, 81, 80, 45, 34, 12, 40]
+                    }]
+                },
+                options: {
+                    maintainAspectRatio: false,
+                    legend: {display: false},
+                    scales: {xAxes: [{display: false}], yAxes: [{display: false}]},
+                    elements: {line: {borderWidth: 2}, point: {radius: 0, hitRadius: 10, hoverRadius: 4}}
+                }
+            });
+        });
+
+
+    </script>
+
+</div>

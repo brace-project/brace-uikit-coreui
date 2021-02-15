@@ -13,10 +13,14 @@ AppLoader::extend(function (BraceApp $app) {
     $app->define("coreUiConfig", new DiService(function (CoreUiConfig $coreUiConfigPreset) {
         $coreUiConfig = clone $coreUiConfigPreset;
         $coreUiConfig->sideNav
-            ->addElement(new Button("ClickMe", "cil-speedometer", "#test"))
-            ->addElement(new Button("Button", "cil-puzzle", "", [
-                new Button("Subnavi"),
-                (new Button("Subnavi2"))->setBadge("hello")
+            ->addElement(new Button("Home", "cil-speedometer", "/"))
+            ->addElement(new Button("Basic Elements", "cil-puzzle", "/elements"))
+            ->addElement(new Button("Icons", "cil-4k", "/icons"))
+            ->addElement(new Button("Plugins", "cil-puzzle", "", [
+
+                new Button("Charts", "cil-chart", "/charts"),
+                new Button("Table", "cil-table", "/table"),
+                (new Button("Editor", "cil-editor", "/editor"))->setBadge("Markdown")
             ]));
 
         $coreUiConfig->topNav

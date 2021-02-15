@@ -62,6 +62,10 @@ class CoreUiConfig
      */
     public $breadcrumb;
 
+    public $plugins = [
+        "chartjs" => false
+    ];
+
     public $footer = [
         "div" => ["a @href=https://coreui.io" => "CoreUI Theme"],
         "div @ml-auto" => ["a @href=https://infracamp.org" => "brace/uikit-coreui"]
@@ -78,7 +82,9 @@ class CoreUiConfig
 
         $this->brandLogoUrl = $assetRoot . "brand-logo.png";
         $this->jsLinkFooter[] = $assetRoot . "js/ui-bundle.js";
+        $this->jsLinkFooter[] = $assetRoot . "js/plugins.js";
         $this->cssLinkHead[] = $assetRoot . "css/ui-bundle.css";
+        $this->cssLinkHead[] = $assetRoot . "css/plugins.css";
     }
 
 

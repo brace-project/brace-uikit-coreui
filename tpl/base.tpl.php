@@ -14,7 +14,6 @@ use function Brace\UiKit\CoreUi\txt;
 <!DOCTYPE html>
 <html lang="<?php txt($__CONFIG->lang) ?>">
 <head>
-    <base href="./">
     <?php
     foreach ($__CONFIG->meta as $name => $content) {
         el("meta @name=? @content=?", [$name, $content]);

@@ -30,11 +30,23 @@ class CoreUiModule implements BraceModule
             ->addFile(__DIR__ . "/../lib-dist/coreui-user-styles.css")
             ->addFile(__DIR__ . "/../lib-dist/bootstrap-icons-1.3.0/bootstrap-icons.css")
             ->addFile(__DIR__ . "/../lib-dist/coreui-icons-master/css/free.min.css");
+
         $app->assets->virtual($this->assetRoot . "js/ui-bundle.js", "text/javascript")
             ->addFile(__DIR__ . "/../lib-dist/coreui.min.js")
+            ->addFile(__DIR__ . "/../lib-dist/coreui-utils.min.js")
             ->addFile(__DIR__ . "/../lib-dist/pace.min.js")
             ->addFile(__DIR__ . "/../lib-dist/perfect-scrollbar.min.js");
 
+        $app->assets->virtual($this->assetRoot . "js/plugins.js", "text/javascript")
+            ->addFile(__DIR__ . "/../lib-dist/codemirror/codemirror.min.js")
+            ->addFile(__DIR__ . "/../lib-dist/codemirror/codemirror-html.js")
+            ->addFile(__DIR__ . "/../lib-dist/chartjs/chartjs.min.js");
+
+        $app->assets->virtual($this->assetRoot . "css/plugins.css", "text/css")
+            ->addFile(__DIR__ . "/../lib-dist/codemirror/codemirror.css")
+            ->addFile(__DIR__ . "/../lib-dist/chartjs/chartjs.min.css");
+
+        // Icons
         $app->assets->virtual($this->assetRoot . "fonts/CoreUI-Icons-Free.woff")
             ->addFile(__DIR__ . "/../lib-dist/coreui-icons-master/fonts/CoreUI-Icons-Free.woff");
         $app->assets->virtual($this->assetRoot . "fonts/CoreUI-Icons-Free.woff2")

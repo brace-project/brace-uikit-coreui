@@ -1,0 +1,105 @@
+<div class="card">
+    <div class="card-body">
+        <div class="d-flex justify-content-between">
+            <div>
+                <h4 class="card-title mb-0">Traffic</h4>
+                <div class="small text-muted">September 2019</div>
+            </div>
+            <div class="btn-toolbar d-none d-md-block" role="toolbar" aria-label="Toolbar with buttons">
+                <div class="btn-group btn-group-toggle mx-3" data-toggle="buttons">
+                    <label class="btn btn-outline-secondary">
+                        <input id="option1" type="radio" name="options" autocomplete="off"> Day
+                    </label>
+                    <label class="btn btn-outline-secondary active">
+                        <input id="option2" type="radio" name="options" autocomplete="off" checked=""> Month
+                    </label>
+                    <label class="btn btn-outline-secondary">
+                        <input id="option3" type="radio" name="options" autocomplete="off"> Year
+                    </label>
+                </div>
+                <button class="btn btn-primary" type="button">
+                    <i class="c-icon cil-cloud-download"></i>
+                </button>
+            </div>
+        </div>
+        <div class="c-chart-wrapper" style="height:300px;margin-top:40px;"><div class="chartjs-size-monitor"><div class="chartjs-size-monitor-expand"><div class=""></div></div><div class="chartjs-size-monitor-shrink"><div class=""></div></div></div>
+            <canvas class="chart chartjs-render-monitor" id="main-chart" height="300" style="display: block;" width="1548"></canvas>
+        </div>
+    </div>
+    <div class="card-footer">
+        <div class="row text-center">
+            <div class="col-sm-12 col-md mb-sm-2 mb-0">
+                <div class="text-muted">Visits</div><strong>29.703 Users (40%)</strong>
+                <div class="progress progress-xs mt-2">
+                    <div class="progress-bar bg-gradient-success" role="progressbar" style="width: 40%" aria-valuenow="40" aria-valuemin="0" aria-valuemax="100"></div>
+                </div>
+            </div>
+            <div class="col-sm-12 col-md mb-sm-2 mb-0">
+                <div class="text-muted">Unique</div><strong>24.093 Users (20%)</strong>
+                <div class="progress progress-xs mt-2">
+                    <div class="progress-bar bg-gradient-info" role="progressbar" style="width: 20%" aria-valuenow="20" aria-valuemin="0" aria-valuemax="100"></div>
+                </div>
+            </div>
+            <div class="col-sm-12 col-md mb-sm-2 mb-0">
+                <div class="text-muted">Pageviews</div><strong>78.706 Views (60%)</strong>
+                <div class="progress progress-xs mt-2">
+                    <div class="progress-bar bg-gradient-warning" role="progressbar" style="width: 60%" aria-valuenow="60" aria-valuemin="0" aria-valuemax="100"></div>
+                </div>
+            </div>
+            <div class="col-sm-12 col-md mb-sm-2 mb-0">
+                <div class="text-muted">New Users</div><strong>22.123 Users (80%)</strong>
+                <div class="progress progress-xs mt-2">
+                    <div class="progress-bar bg-gradient-danger" role="progressbar" style="width: 80%" aria-valuenow="80" aria-valuemin="0" aria-valuemax="100"></div>
+                </div>
+            </div>
+            <div class="col-sm-12 col-md mb-sm-2 mb-0">
+                <div class="text-muted">Bounce Rate</div><strong>40.15%</strong>
+                <div class="progress progress-xs mt-2">
+                    <div class="progress-bar" role="progressbar" style="width: 40%" aria-valuenow="40" aria-valuemin="0" aria-valuemax="100"></div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<script>
+    window.addEventListener("load", () => {
+        var mainChart = new Chart(document.getElementById('main-chart'), {
+            type: 'line',
+            data: {
+                labels: ['M', 'T', 'W', 'T', 'F', 'S', 'S', 'M', 'T', 'W', 'T', 'F', 'S', 'S', 'M', 'T', 'W', 'T', 'F', 'S', 'S', 'M', 'T', 'W', 'T', 'F', 'S', 'S'],
+                datasets: [{
+                    label: 'My First dataset',
+                    //backgroundColor: coreui.Utils.hexToRgba(coreui.Utils.getStyle('--info'), 10),
+                    //borderColor: coreui.Utils.getStyle('--info'),
+                    pointHoverBackgroundColor: '#fff',
+                    borderWidth: 2,
+                    data: [165, 180, 70, 69, 77, 57, 125, 165, 172, 91, 173, 138, 155, 89, 50, 161, 65, 163, 160, 103, 114, 185, 125, 196, 183, 64, 137, 95, 112, 175]
+                }, {
+                    label: 'My Second dataset',
+                    backgroundColor: 'transparent',
+                    //borderColor: GetProperty('.success', "color"),
+                    pointHoverBackgroundColor: '#fff',
+                    borderWidth: 2,
+                    data: [92, 97, 80, 100, 86, 97, 83, 98, 87, 98, 93, 83, 87, 98, 96, 84, 91, 97, 88, 86, 94, 86, 95, 91, 98, 91, 92, 80, 83, 82]
+                }, {
+                    label: 'My Third dataset',
+                    backgroundColor: 'transparent',
+                    //borderColor: coreui.Utils.getStyle('--danger'),
+                    pointHoverBackgroundColor: '#fff',
+                    borderWidth: 1,
+                    borderDash: [8, 5],
+                    data: [65, 65, 65, 65, 65, 65, 65, 65, 65, 65, 65, 65, 65, 65, 65, 65, 65, 65, 65, 65, 65, 65, 65, 65, 65, 65, 65, 65, 65, 65]
+                }]
+            },
+            options: {
+                maintainAspectRatio: false,
+                legend: {display: false},
+                scales: {
+                    xAxes: [{gridLines: {drawOnChartArea: false}}],
+                    yAxes: [{ticks: {beginAtZero: true, maxTicksLimit: 5, stepSize: Math.ceil(250 / 5), max: 250}}]
+                },
+                elements: {point: {radius: 0, hitRadius: 10, hoverRadius: 4, hoverBorderWidth: 3}}
+            }
+        });
+    })
+</script>
