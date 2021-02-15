@@ -1,9 +1,9 @@
 # Kickstart container config file - see https://gitub.com/infracamp/kickstart
 # Run ./kickstart.sh to start a development-container for this project
 version: 1
-from: "nfra/kickstart-flavor-php:7.4"
+from: "nfra/kickstart-flavor-php:unstable"
 
-packages: wget
+packages: [wget, php8.0-yaml]
 
 command:
   build:

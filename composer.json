@@ -14,14 +14,13 @@
     "require": {
         "brace/core": "*",
         "brace/mod-router": "*",
-        "brace/mod-request-zend": "*",
+        "brace/mod-request-laminas": "*",
         "brace/mod-assets": "*",
         "phore/html": "*"
     },
 
     "require-dev": {
         "phore/tester": "*",
-        "phore/http-client": "*",
         "erusev/parsedown-extra": "*"
     },
     "autoload": {
