@@ -4,29 +4,14 @@
 namespace Brace\UiKit\CoreUi;
 
 
-use Brace\UiKit\CoreUi\Element\NavBar;
 
-class CoreUiConfig
+
+use Brace\UiKit\Base\Element\NavBar;
+use Brace\UiKit\Base\UiBaseConfig;
+
+class CoreUiConfig extends UiBaseConfig
 {
 
-
-
-    public $lang = "en";
-    public $title = "Brace CoreUI :: Unnamed Application";
-
-    public $meta = [
-        "charset" => "utf-8",
-        "viewport" => "width=device-width, initial-scale=1.0, shrink-to-fit=no",
-        "X-UA-Compatible" => "IE=edge",
-        "description" => "",
-        "author" => "",
-        "keyword" => ""
-    ];
-
-
-    public $jsLinkHead = [];
-    public $jsLinkFooter = [];
-    public $cssLinkHead = [];
 
 
     public $brandLogoUrl;

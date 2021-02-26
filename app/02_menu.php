@@ -3,10 +3,10 @@ namespace App;
 
 use Brace\Core\AppLoader;
 use Brace\Core\BraceApp;
+use Brace\UiKit\Base\Element\Button;
+use Brace\UiKit\Base\Element\Spacer;
+use Brace\UiKit\Base\Element\Title;
 use Brace\UiKit\CoreUi\CoreUiConfig;
-use Brace\UiKit\CoreUi\Element\Button;
-use Brace\UiKit\CoreUi\Element\Spacer;
-use Brace\UiKit\CoreUi\Element\Title;
 use Phore\Di\Container\Producer\DiService;
 
 AppLoader::extend(function (BraceApp $app) {

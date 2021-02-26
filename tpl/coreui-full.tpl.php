@@ -1,10 +1,14 @@
 <?php
 
 namespace Brace\UiKit\CoreUi;
-use Brace\UiKit\CoreUi\Element\Button;
-use Brace\UiKit\CoreUi\Element\Spacer;
-use Brace\UiKit\CoreUi\Element\Title;
-use Brace\UiKit\CoreUi\Template\Renderer;
+
+
+use Brace\UiKit\Base\Element\Button;
+use Brace\UiKit\Base\Element\Spacer;
+use Brace\UiKit\Base\Element\Title;
+use Brace\UiKit\Base\Template\Renderer;
+use function Brace\UiKit\Base\el;
+use function Brace\UiKit\Base\txt;
 
 /**
  * @var \Brace\UiKit\CoreUi\CoreUiConfig $__CONFIG

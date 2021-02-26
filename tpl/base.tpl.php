@@ -1,14 +1,13 @@
 <?php
 namespace Brace\UiKit\CoreUi;
-use Brace\UiKit\CoreUi\Template\Renderer;
-use function Brace\UiKit\CoreUi\el;
-use function Brace\UiKit\CoreUi\txt;
+use Brace\UiKit\Base\Template\Renderer;
+use function Brace\UiKit\Base\el;
+use function Brace\UiKit\Base\txt;
 
-/**
- * @var CoreUiConfig $__CONFIG
- * @var string $__CONTENT
- * @var Renderer $this
- */
+
+assert($__CONFIG instanceof CoreUiConfig);
+assert(is_string($__CONTENT));
+assert($this instanceof Renderer);
 
 ?>
 <!DOCTYPE html>

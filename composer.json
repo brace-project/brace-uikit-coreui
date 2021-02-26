@@ -14,21 +14,20 @@
     "require": {
         "brace/core": "*",
         "brace/mod-router": "*",
-        "brace/mod-request-laminas": "*",
         "brace/mod-assets": "*",
-        "phore/html": "*"
+        "brace/uikit-base": "*"
     },
 
     "require-dev": {
         "phore/tester": "*",
-        "erusev/parsedown-extra": "*"
+        "erusev/parsedown-extra": "^0.8.1",
+        "brace/mod-request-laminas": "*"
     },
     "autoload": {
         "psr-4": {
             "Brace\\UiKit\\CoreUi\\": "src"
         },
         "files": [
-            "src/functions.inc.php"
         ]
     },
     "autoload-dev": {
