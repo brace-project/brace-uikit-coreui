@@ -23,7 +23,7 @@ AppLoader::extend(function (BraceApp $app) {
         new AssetsMiddleware(["/assets/"]),
         new RouterEvalMiddleware(),
         new RouterDispatchMiddleware([
-            new UiKitPageReturnFormatter($app),
+            new UiKitPageReturnFormatter($app, "coreUiConfig"),
             new JsonReturnFormatter($app)
         ]),
         new NotFoundMiddleware()
